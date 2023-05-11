@@ -1,0 +1,406 @@
+   /* HEADER */
+
+   body {
+    font-family: "Poppins", sans-serif;
+  }
+.image{
+    object-fit: contain;
+    margin-right: 200px;
+    max-width: 244px;
+}
+
+
+.middle_container{
+    margin-right: 180px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.right_container{
+    margin-right: 200px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.countdown_container{
+    margin-right: 20px;
+    align-self: center;
+}
+
+
+.add-button{
+    display: block;
+    flex-direction: column;
+    margin-right: 20px;
+    text-align: center;
+    white-space: nowrap;
+    height: max-content;
+}
+
+.container{
+    display: flex;
+    padding-top: 25px;
+    padding-left: 0;
+    margin-left: 35px;
+}
+
+.container1{
+    display: flex;
+    justify-content: space-between;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: whitesmoke;
+  color: #0d0e48;
+  text-decoration: none;
+  border-radius: 10px;
+  height: max-content;
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.dark-mode .button {
+  background-color: #303444;
+  color: #fefeed;
+  font-weight: 700;
+}
+
+
+        /* COUNTDOWN */
+
+#countdown {
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    display: flex;
+    top: 0; /* Position it at the top */
+    left: 0; /* Position it at the left */
+    right: 0; /* Stretch it to the full width */
+    height: auto; /* Set the desired height */
+  }
+  
+  #pipe-container {
+    position: relative;
+    width: 40px;
+    height: 40px;
+  }
+  
+  #pipe {
+    width: 100%;
+    height: 100%;
+  }
+  
+  #pipe-border {
+    fill: none;
+    stroke: lightgray;
+    stroke-width: 15;
+  }
+  
+  #water-level {
+    fill: none;
+    stroke: #6CCACB ;
+    stroke-width: 18;
+    stroke-dasharray: 565;
+    stroke-dashoffset: 0;
+    animation: water-level-animation 60s linear infinite;
+  }
+  
+  @keyframes water-level-animation {
+    0% {
+      stroke-dashoffset: 0;
+    }
+    100% {
+      stroke-dashoffset: 565;
+    }
+  }
+  
+  #timer {
+    font-size: 100px;
+    fill: #6CCACB;
+    font-weight: bolder;
+  }
+  
+
+
+
+
+      /* DARK MODE */
+
+
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    align-self: center;
+
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: whitesmoke;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: #6CCACB;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #303444;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(26px);
+  }
+  
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  
+
+
+  body.dark-mode {
+    background-color: #0E141F ;
+    color: #FFFFFF;
+  }
+
+
+
+
+
+
+    /* BODY-CONTENT */
+
+
+.body_container{
+     display: flex;
+     justify-content: space-between
+}
+
+.body_header{
+    margin-left: 530px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #6CCACB;
+}
+
+
+.body_ptag{
+    margin-right: 50px;
+    margin-left: 50px;
+}
+
+
+.crypto_container{
+    display: flex;
+    justify-content: space-between
+}
+
+.crypto_heading{
+    margin-right: 10px;
+    margin-left: 10px;
+
+}
+
+
+.crypto_heading1{
+  margin-left: 100px;
+  color: #6CCACB;
+}
+
+.crypto_heading2{
+  margin-left: -60px;
+  color: #6CCACB;
+}
+
+.crypto_heading3{
+  margin-left: -70px;
+  color: #6CCACB;
+}
+
+
+.crypto_heading4{
+  color: #6CCACB;
+}
+
+.crypto_heading5{
+  color: #6CCACB;
+}
+
+.crypto_heading6{
+  padding-right: 100px;
+  color: #6CCACB;
+}
+
+
+
+
+
+
+.crypto_table {
+  display: grid;
+  grid-template-columns: auto 1fr 1fr 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+.crypto_row {
+  display: grid;
+  grid-template-columns: auto 1fr 1fr 1fr 1fr 1fr;
+  gap: 10px;
+  align-items: center;
+  padding: 5px;
+  margin-left: 100px;
+}
+
+.crypto_header {
+  font-weight: bold;
+}
+
+.crypto_row p {
+  margin: 0;
+  margin-left: 100px;
+  color: #0d0e48;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+}
+
+.dark-mode .crypto_row p{
+  color: whitesmoke;
+}
+
+.crypto_row .crypto_column {
+  margin-left: -1px;
+}
+
+
+.crypto_row .crypto_column1{
+  margin-left: -1px;
+}
+
+.crypto_row .crypto_column2{
+  margin-left: -0.10px;
+}
+
+.crypto_row .crypto_column3{
+  margin-left: -1px;
+  padding-right: 80px;
+}
+
+#row_0,
+#row_1,
+#row_2,
+#row_3,
+#row_4,
+#row_5,
+#row_6,
+#row_7,
+#row_8,
+#row_9,
+#row_10 {
+  margin-bottom: 10px;
+  border-radius: 10px;
+  width: max-content;
+}
+
+.dark-mode #row_0,
+.dark-mode #row_1,
+.dark-mode #row_2,
+.dark-mode #row_3,
+.dark-mode #row_4,
+.dark-mode #row_5,
+.dark-mode #row_6,
+.dark-mode #row_7,
+.dark-mode #row_8,
+.dark-mode #row_9,
+.dark-mode #row_10 {
+  background-color: rgba(48, 52, 68, 0.5);
+ 
+}
+
+      /* FOOTER */
+
+footer{
+    background-color: #0E141F;
+}
+
+.footer_text{
+    color: gray;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.last_button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: #0E141F;
+  z-index: 9999;
+  padding-top: 8px;
+}
+
+.footer_button {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+}
+
+
+
+.footer2{
+    margin-right: 20px;
+    border-top: 1px solid gray;
+    width: 100%;
+    padding-bottom: 50px;
+}
+
+
+
+
+
+
+
+/* RESPONSIVE */
+/* Styles for mobile devices */
+@media (max-width: 767px) {
+  /* CSS rules for mobile */
+}
+
+/* Styles for tablets */
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* CSS rules for tablets */
+}
+
+/* Styles for desktops */
+@media (min-width: 1024px) {
+  /* CSS rules for desktops */
+}

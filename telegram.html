@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>HodlInfo</title>
+    <style>
+        .link {
+          text-decoration: underline;
+        }
+      
+        .link:hover {
+          text-decoration: none;
+        }
+
+      </style>
+</head>
+<body>
+    <div class="container">
+        <div class="navbar_header">
+            <a href="/">
+                <img class="image" src="https://hodlinfo.com/static/media/HODLINFO.8f78fc06.png">
+              </a>              
+        </div>
+
+        <label class="switch" style="display: flex; margin-left: 700px;">
+            <input id="modeToggle" type="checkbox">
+            <span class="slider round"></span>
+          </label>
+        </div>
+
+        <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <h1 style="margin-bottom: 40px;">Connect <i class="fa-solid fa-paper-plane" style="color: var(--icon-color, black);"></i> Telegram</h1>
+            <h4 style="margin-bottom: 20px;">Add bot to your group</h4>
+            <h3>Manual :</h3>
+            <p style="margin: 2px 0;">  1. Open the telegram app.</p>
+            <p style="margin: 2px 0;"> 2. Open the group you want to add the bot to.</p>
+            <p style="margin: 2px 0;"> 3. Click on add members in group settings.</p>
+            <p style="margin-bottom: 40px;"> 4. Search @HodlInfoBot and click it.</p>
+                <h3 style="margin-bottom: 2px;">Automatic :</h3>
+                <p class="link_p" style="margin-top: 2px; margin-bottom: 40px;">Go to: <a href="https://t.me/HodlInfoBot?startgroup=true" target="_blank" rel="noopener noreferrer" class="link">https://t.me/HodlInfoBot?startgroup=true</a></p>
+                <h2>Chat with the bot</h2>
+                <h3 style="margin-top: 2px;">Manual :</h3>
+                <p style="margin-top: 0; margin-bottom: 2px;">  1. Open the telegram app.</p>
+                    <p style="margin: 2px 0;">  2. Click on new message button.</p>
+                    <p style="margin: 2px 0;"> 3. In search bar type HodlInfoBot.</p>
+                    <p style="margin-top: 2px; margin-bottom: 40px;">  4. Click on @HodlInfoBot.</p>
+                    <h3 style="margin-bottom: 2px;">Automatic :</h3>
+                    <p class="link_p"  style="margin-top: 0;">Go to: <a href="https://t.me/HodlInfoBot" target="_blank" rel="noopener noreferrer" class="link">https://t.me/HodlInfoBot</a></p>
+          </div>
+        
+
+
+
+          
+          
+
+
+
+  <!-- FOOTER -->
+
+  <footer id="footer">
+    <div class="container1 footer2">
+      <div class="container1">
+        <p class="footer_text">Copyright ©️ 2023</p>
+        <p class="footer_text">HodlInfo.com</p>
+      </div>
+      <p class="footer_text">
+        <a href="mailto:support@example.com" style="text-decoration: none; color: gray;">Support</a>
+      </p>
+    </div>
+    <div class="last_button">
+    <button class="add-button btn btn-outline-info footer_button" >Add hodlinfo to home screen</button>
+  </div>
+  </footer>
+
+
+
+
+
+
+
+
+          <script>
+             // dark mode
+    const modeToggle = document.getElementById("modeToggle");
+    const body = document.body;
+
+    modeToggle.addEventListener("change", function () {
+      if (this.checked) {
+        body.classList.add("dark-mode");
+      } else {
+        body.classList.remove("dark-mode");
+      }
+    });
+
+
+
+
+    const iconElement = document.querySelector(".fa-paper-plane");
+  const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+  if (prefersDarkMode) {
+    iconElement.setAttribute("style", "color: #f7f9fd;");
+  } else {
+    iconElement.removeAttribute("style");
+  }
+
+          </script>
+</body>

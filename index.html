@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Hodlinfo</title>
+    
+</head>
+<body>
+
+   <!-- HEADER -->
+
+  <div class="container">
+    <div class="navbar_header">
+      <a href="/">
+        <img class="image" src="https://hodlinfo.com/static/media/HODLINFO.8f78fc06.png">
+      </a>      
+    </div>
+
+    <div class="middle_container">
+      <a href="" target="_blank" rel="noopener noreferrer" class="button" id="inrButton">INR</a>
+      <a href="https://wazirx.com/" target="_blank" rel="noopener noreferrer" class="button" id="buyButton">BUY CRYPTOCURRENCY</a>
+    </div>
+
+    <div class="right_container">
+      <div class="countdown_container">
+        <div id="countdown">
+          <div id="pipe-container">
+            <svg id="pipe" viewBox="0 0 200 200">
+              <circle id="pipe-border" cx="100" cy="100" r="90"></circle>
+              <circle id="water-level" cx="100" cy="100" r="90"></circle>
+              <text id="timer" x="50%" y="50%" text-anchor="middle" dominant-baseline="middle">60</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <a href="/connect/telegram" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="background-color: #6CCACB; height: max-content; white-space: nowrap; border: 1px solid #6CCACB; border-radius: 10px;  margin-right: 20px;"><i class="fa-solid fa-paper-plane" style="color: #f7f9fd;"></i>
+         Connect Telegram</a>
+
+       <label class="switch">
+        <input id="modeToggle" type="checkbox">
+        <span class="slider round"></span>
+      </label>
+    </div>
+  </div>
+
+  <!-- BODY  -->
+
+  <h2 class="body_header">Best Price to Trade</h2>
+
+ 
+
+  <div class="crypto_container">
+    <h4 class="crypto_heading1">#</h4>
+    <h4 class="crypto_heading2">CryptoCurrency</h4>
+    <h4 class="crypto_heading3">Last Traded Price</h4>
+    <h4 class="crypto_heading4">Buy / Sell Price</h4>
+    <h4 class="crypto_heading5">Difference</h4>
+    <h4 class="crypto_heading6">Savings</h4>
+  </div>
+
+  <div id="data_container"></div>
+
+
+
+  
+  
+
+  <!-- FOOTER -->
+
+  <footer id="footer">
+    <div class="container1 footer2">
+      <div class="container1">
+        <p class="footer_text">Copyright ©️ 2023</p>
+        <p class="footer_text">HodlInfo.com</p>
+      </div>
+      <p class="footer_text">
+        <a href="mailto:support@example.com" style="text-decoration: none; color: gray;">Support</a>
+      </p>
+    </div>
+    <div class="last_button">
+    <button class="add-button btn btn-outline-info footer_button" >Add hodlinfo to home screen</button>
+  </div>
+  </footer>
+
+
+
+
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- SCRIPT -->
+
+<script>
+  // countdown
+  window.onload = function () {
+      var timerElement = document.getElementById("timer");
+      var waterLevelElement = document.getElementById("water-level");
+      var remainingSeconds = 60;
+      var waterLevelAnimation;
+
+      function startCountdown() {
+        timerElement.innerHTML = remainingSeconds;
+        waterLevelElement.style.strokeDashoffset = 0;
+        waterLevelAnimation = waterLevelElement.animate(
+          [
+            { strokeDashoffset: 0 },
+            { strokeDashoffset: 565 }
+          ],
+          { duration: 60000 }
+        );
+
+        var countdownInterval = setInterval(function () {
+          remainingSeconds--;
+          timerElement.innerHTML = remainingSeconds;
+
+          if (remainingSeconds <= 0) {
+            clearInterval(countdownInterval);
+            remainingSeconds = 60;
+            startCountdown();
+          }
+        }, 1000);
+      }
+
+      startCountdown();
+    }
+
+    // dark mode
+    const modeToggle = document.getElementById("modeToggle");
+    const body = document.body;
+
+    modeToggle.addEventListener("change", function () {
+      if (this.checked) {
+        body.classList.add("dark-mode");
+      } else {
+        body.classList.remove("dark-mode");
+      }
+    });
+
+
+
+
+
+
+
+//     const inrButton = document.getElementById("inrButton");
+// const buyButton = document.getElementById("buyButton");
+// const darkModeToggle = document.getElementById("darkModeToggle");
+
+// darkModeToggle.addEventListener("change", function () {
+//   if (this.checked) {
+//     inrButton.classList.add("dark-mode");
+//     buyButton.classList.add("dark-mode");
+//   } else {
+//     inrButton.classList.remove("dark-mode");
+//     buyButton.classList.remove("dark-mode");
+//   }
+// });
+
+
+
+
+
+
+
+
+
+// Fetch data from the API endpoint and update the HTML
+fetch("/api/data")
+  .then((response) => response.json())
+  .then((data) => {
+    const dataContainer = document.getElementById("data_container");
+
+    // Iterate through the data and create HTML elements
+    data.forEach((item, index) => {
+      const row = document.createElement("div");
+      row.classList.add("crypto_row");
+      row.id = `row_${index}`;
+
+      const numberCell = document.createElement("p");
+      numberCell.textContent = index + 1;
+      numberCell.classList.add("crypto_column3");
+      row.appendChild(numberCell);
+
+      const platformCell = document.createElement("p");
+      platformCell.textContent = item.name;
+      platformCell.classList.add("crypto_column2");
+      row.appendChild(platformCell);
+
+      const lastPriceCell = document.createElement("p");
+      const lastPrice = parseFloat(item.last).toFixed(9);
+      lastPriceCell.textContent = lastPrice;
+      lastPriceCell.classList.add("crypto_column1");
+      row.appendChild(lastPriceCell);
+
+      const buySellPriceCell = document.createElement("p");
+      const buyPrice = parseFloat(item.buy).toFixed(9);
+      const sellPrice = parseFloat(item.sell).toFixed(9);
+      buySellPriceCell.textContent = `${buyPrice} / ${sellPrice}`;
+      buySellPriceCell.classList.add("crypto_column");
+      row.appendChild(buySellPriceCell);
+
+      const differenceCell = document.createElement("p");
+      const difference = parseFloat(item.sell) - parseFloat(item.buy);
+      differenceCell.textContent = difference.toFixed(9);
+      row.appendChild(differenceCell);
+
+      const savingsCell = document.createElement("p");
+      const savings = difference * item.volume;
+      savingsCell.textContent = savings.toFixed(2);
+      row.appendChild(savingsCell);
+
+      dataContainer.appendChild(row);
+    });
+  })
+  .catch((error) => {
+    console.error("Error fetching data:", error);
+  });
+
+
+</script>
+
+</body>
+</html>
